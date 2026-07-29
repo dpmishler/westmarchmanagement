@@ -3,27 +3,52 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Page not found — Westmarch Management</title>
+<title>Uncharted — Westmarch</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23F4F2EB'/%3E%3Cpath d='M16 7 L25 24 L7 24 Z' fill='none' stroke='%231E5C41' stroke-width='2'/%3E%3Ccircle cx='16' cy='19' r='2.2' fill='%231E5C41'/%3E%3C/svg%3E">
 <style>
+  @font-face {
+    font-family: "Sentient";
+    src: url("/fonts/Sentient-Variable.woff2") format("woff2");
+    font-weight: 200 700; font-display: swap;
+  }
+  @font-face {
+    font-family: "Switzer";
+    src: url("/fonts/Switzer-Variable.woff2") format("woff2");
+    font-weight: 100 900; font-display: swap;
+  }
+  * { margin: 0; box-sizing: border-box; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background: #faf8f4; color: #1b2a44;
-    display: flex; align-items: center; justify-content: center;
-    min-height: 100vh; margin: 0; text-align: center; padding: 24px;
+    font-family: "Switzer", -apple-system, "Segoe UI", sans-serif;
+    background: #F4F2EB; color: #14201A;
+    display: grid; place-items: center; min-height: 100svh; padding: 24px;
+    -webkit-font-smoothing: antialiased;
   }
-  h1 { font-size: 2rem; letter-spacing: -0.02em; margin-bottom: 10px; }
-  p { color: #44506a; margin-bottom: 24px; }
+  main { max-width: 40ch; }
+  .code {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 0.75rem; letter-spacing: 0.16em; color: #1E5C41;
+    border-left: 1px solid #C29237; padding-left: 12px; margin-bottom: 20px;
+  }
+  h1 {
+    font-family: "Sentient", Georgia, serif; font-weight: 420;
+    font-size: clamp(1.9rem, 6vw, 2.8rem); line-height: 1.1;
+    letter-spacing: -0.015em; margin-bottom: 14px; text-wrap: balance;
+  }
+  p { color: #4A554D; line-height: 1.6; margin-bottom: 28px; }
   a {
-    display: inline-block; text-decoration: none; font-weight: 600;
-    padding: 12px 20px; border-radius: 10px; background: #1b2a44; color: #fff;
+    display: inline-block; text-decoration: none; font-weight: 520;
+    padding: 12px 20px; border-radius: 999px; background: #14201A; color: #F4F2EB;
+    transition: background 180ms ease;
   }
+  a:hover { background: #174A34; }
 </style>
 </head>
 <body>
-  <div>
-    <h1>That page isn't here.</h1>
-    <p>The page you're looking for doesn't exist or has moved.</p>
-    <a href="/">Back to Westmarch Management</a>
-  </div>
+  <main>
+    <p class="code">404 — BEYOND THE SURVEYED AREA</p>
+    <h1>This ground hasn't been mapped.</h1>
+    <p>The page you're after doesn't exist here, or the road to it has moved.</p>
+    <a href="/">Return to surveyed territory</a>
+  </main>
 </body>
 </html>

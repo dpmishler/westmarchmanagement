@@ -3,297 +3,524 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Westmarch Management — Technology partners for local restaurants</title>
-<meta name="description" content="Westmarch Management builds ordering apps, POS integrations, loyalty programs, and marketing platforms for local restaurants and small businesses.">
-<meta property="og:title" content="Westmarch Management">
-<meta property="og:description" content="Ordering apps, POS integration, loyalty, and local marketing — built for independent restaurants.">
+<title>Westmarch — AI process consultation &amp; integration</title>
+<meta name="description" content="Westmarch is a principal-led practice for AI process consultation and integration: we survey your operation, find where AI actually pays, and build it into the systems you already run.">
+<meta property="og:title" content="Westmarch">
+<meta property="og:description" content="AI process consultation &amp; integration. Survey the territory. Build the road. Hold the line.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://westmarchmanagement.com">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231b2a44'/%3E%3Cpath d='M6 10l4 12 4-9 4 9 4-12' stroke='%23c9873a' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23F4F2EB'/%3E%3Cpath d='M16 7 L25 24 L7 24 Z' fill='none' stroke='%231E5C41' stroke-width='2'/%3E%3Ccircle cx='16' cy='19' r='2.2' fill='%231E5C41'/%3E%3C/svg%3E">
 <style>
-  :root {
-    --ink: #1b2a44;
-    --ink-soft: #44506a;
-    --paper: #faf8f4;
-    --card: #ffffff;
-    --line: #e6e1d8;
-    --accent: #c9873a;
-    --accent-deep: #a96b22;
-    --max: 1080px;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background: var(--paper);
-    color: var(--ink);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+/* ————————————————————————————————————————————————
+   Westmarch — survey-paper editorial system
+   paper #F4F2EB · ink #14201A · rule #DAD7C9 · survey green #1E5C41
+   marker ochre #C29237 (canvas + fine details only)
+   Sentient (display serif, variable) · Switzer (text, variable) · mono labels
+—————————————————————————————————————————————— */
+@font-face {
+  font-family: "Sentient";
+  src: url("fonts/Sentient-Variable.woff2") format("woff2");
+  font-weight: 200 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Sentient";
+  src: url("fonts/Sentient-VariableItalic.woff2") format("woff2");
+  font-weight: 200 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Switzer";
+  src: url("fonts/Switzer-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
 
-  header {
-    position: sticky; top: 0; z-index: 10;
-    background: rgba(250, 248, 244, 0.92);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--line);
-  }
-  nav {
-    display: flex; align-items: center; justify-content: space-between;
-    height: 64px;
-  }
-  .brand {
-    font-weight: 700; letter-spacing: 0.02em; font-size: 1.05rem;
-    color: var(--ink); text-decoration: none;
-    display: flex; align-items: center; gap: 10px;
-  }
-  .brand svg { flex: none; }
-  .nav-links { display: flex; gap: 28px; }
-  .nav-links a {
-    color: var(--ink-soft); text-decoration: none; font-size: 0.92rem;
-    font-weight: 500;
-  }
-  .nav-links a:hover { color: var(--ink); }
-  .nav-links a.cta {
-    color: #fff; background: var(--ink);
-    padding: 8px 16px; border-radius: 8px;
-  }
-  .nav-links a.cta:hover { background: #24365a; }
-  @media (max-width: 640px) { .nav-links a:not(.cta) { display: none; } }
+@property --h1-wght { syntax: "<number>"; inherits: true; initial-value: 420; }
 
-  .hero { padding: 96px 0 72px; }
-  .hero .kicker {
-    color: var(--accent-deep); font-weight: 600; font-size: 0.85rem;
-    text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 16px;
-  }
-  .hero h1 {
-    font-size: clamp(2.1rem, 5vw, 3.3rem);
-    line-height: 1.12; letter-spacing: -0.02em; font-weight: 750;
-    max-width: 17ch;
-  }
-  .hero p {
-    margin-top: 20px; font-size: 1.13rem; color: var(--ink-soft);
-    max-width: 54ch;
-  }
-  .hero-actions { margin-top: 32px; display: flex; gap: 14px; flex-wrap: wrap; }
-  .btn {
-    display: inline-block; text-decoration: none; font-weight: 600;
-    padding: 13px 22px; border-radius: 10px; font-size: 0.98rem;
-  }
-  .btn-primary { background: var(--ink); color: #fff; }
-  .btn-primary:hover { background: #24365a; }
-  .btn-ghost { color: var(--ink); border: 1px solid var(--line); background: var(--card); }
-  .btn-ghost:hover { border-color: var(--ink-soft); }
+:root {
+  --paper: #F4F2EB;
+  --paper-deep: #ECE9DF;
+  --ink: #14201A;
+  --ink-2: #4A554D;
+  --rule: #DAD7C9;
+  --green: #1E5C41;
+  --green-deep: #174A34;
+  --ochre: #C29237;
+  --serif: "Sentient", "Iowan Old Style", Georgia, serif;
+  --sans: "Switzer", -apple-system, "Segoe UI", sans-serif;
+  --mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, monospace;
+  --gutter: clamp(20px, 4vw, 56px);
+  --max: 1200px;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --spring: linear(0, 0.3 9%, 0.72 20.5%, 1.03 33%, 1.09 40%, 1.03 55%, 0.99 68%, 1);
+}
 
-  .trust {
-    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
-    padding: 18px 0; background: var(--card);
-  }
-  .trust p {
-    text-align: center; color: var(--ink-soft); font-size: 0.92rem;
-  }
-  .trust strong { color: var(--ink); }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
-  section { padding: 80px 0; }
-  .section-head { max-width: 60ch; margin-bottom: 44px; }
-  .section-head .kicker {
-    color: var(--accent-deep); font-weight: 600; font-size: 0.8rem;
-    text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 10px;
-  }
-  .section-head h2 {
-    font-size: clamp(1.5rem, 3vw, 2.1rem); letter-spacing: -0.015em;
-    line-height: 1.2;
-  }
-  .section-head p { margin-top: 12px; color: var(--ink-soft); }
+body {
+  font-family: var(--sans);
+  font-weight: 430;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.62;
+  font-size: 1.0rem;
+  -webkit-font-smoothing: antialiased;
+}
 
-  .grid {
-    display: grid; gap: 18px;
-    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-  }
-  .card {
-    background: var(--card); border: 1px solid var(--line);
-    border-radius: 14px; padding: 26px;
-  }
-  .card h3 { font-size: 1.05rem; margin-bottom: 8px; }
-  .card p { color: var(--ink-soft); font-size: 0.95rem; }
-  .card .glyph {
-    width: 38px; height: 38px; border-radius: 9px;
-    background: linear-gradient(135deg, #f3e6d3, #ecd9bd);
-    color: var(--accent-deep);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.1rem; margin-bottom: 16px; font-weight: 700;
-  }
+/* Grain: one static SVG turbulence pass, cached, never repainted */
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: 40; pointer-events: none;
+  opacity: 0.05; mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
 
-  .steps { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
-  .step { border-left: 3px solid var(--accent); padding: 4px 0 4px 20px; }
-  .step .num { color: var(--accent-deep); font-weight: 700; font-size: 0.85rem; letter-spacing: 0.08em; }
-  .step h3 { margin: 6px 0 6px; font-size: 1.05rem; }
-  .step p { color: var(--ink-soft); font-size: 0.95rem; }
+::selection { background: var(--green); color: var(--paper); }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; border-radius: 2px; }
 
-  .work {
-    background: var(--ink); color: #eef1f7; border-radius: 18px;
-    padding: 48px; display: grid; gap: 32px;
-    grid-template-columns: 1.3fr 1fr; align-items: center;
+.wrap { max-width: var(--max); margin: 0 auto; padding-inline: var(--gutter); }
+
+/* ——— survey rail (desktop): coordinate ruler down the left edge ——— */
+.rail {
+  position: fixed; top: 0; bottom: 0; left: 0; width: 44px; z-index: 20;
+  border-right: 1px solid var(--rule);
+  display: none;
+  background:
+    repeating-linear-gradient(to bottom, transparent 0 23px, var(--rule) 23px 24px) right/8px 100% no-repeat,
+    repeating-linear-gradient(to bottom, transparent 0 119px, var(--rule) 119px 120px) right/16px 100% no-repeat;
+}
+.rail span {
+  position: absolute; left: 50%; transform: translateX(-50%) rotate(180deg);
+  writing-mode: vertical-rl; font-family: var(--mono); font-size: 0.6rem;
+  letter-spacing: 0.14em; color: var(--ink-2);
+}
+.rail span:nth-child(1) { top: 96px; }
+.rail span:nth-child(2) { top: 45%; }
+.rail span:nth-child(3) { bottom: 64px; }
+@media (min-width: 1100px) {
+  .rail { display: block; }
+  body { padding-left: 44px; }
+  header { left: 44px; }
+}
+
+/* ——— header: progressive blur, not a slab ——— */
+header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 30;
+  pointer-events: none;
+}
+header::before {
+  content: ""; position: absolute; inset: 0; height: 130%;
+  backdrop-filter: blur(9px); -webkit-backdrop-filter: blur(9px);
+  mask-image: linear-gradient(to bottom, #000 55%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent);
+}
+nav {
+  position: relative; pointer-events: auto;
+  max-width: var(--max); margin: 0 auto; padding-inline: var(--gutter);
+  height: 68px; display: flex; align-items: center; justify-content: space-between;
+}
+.brand {
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--serif); font-weight: 560; font-size: 1.12rem;
+  letter-spacing: 0.005em; text-decoration: none;
+}
+.brand svg { display: block; }
+.nav-links { display: flex; gap: 26px; align-items: center; }
+.nav-links a {
+  font-size: 0.87rem; font-weight: 480; text-decoration: none; color: var(--ink-2);
+  transition: color 160ms var(--ease-out);
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-links a.cta {
+  color: var(--paper); background: var(--ink); padding: 9px 16px;
+  border-radius: 999px; font-weight: 520;
+  transition: background 180ms var(--ease-out), transform 260ms var(--spring);
+}
+.nav-links a.cta:hover { background: var(--green-deep); }
+@media (max-width: 680px) { .nav-links a:not(.cta) { display: none; } }
+
+/* ——— hero ——— */
+.hero {
+  position: relative; min-height: 92svh;
+  display: grid; align-content: end;
+  padding-top: 120px; padding-bottom: clamp(40px, 7vh, 88px);
+  overflow: clip;
+}
+#contours {
+  position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%;
+}
+.hero::before { /* legibility wash over the canvas, heavier at text side */
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(105deg, var(--paper) 30%, rgba(244,242,235,0.55) 62%, rgba(244,242,235,0.12));
+}
+.defn {
+  font-family: var(--mono); font-size: 0.78rem; color: var(--ink-2);
+  letter-spacing: 0.02em; max-width: 46ch; margin-bottom: clamp(28px, 4vh, 44px);
+  border-left: 1px solid var(--ochre); padding-left: 14px;
+}
+.defn b { color: var(--ink); font-weight: 600; }
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.6rem, 7.2vw, 5.4rem);
+  line-height: 1.03; letter-spacing: -0.015em;
+  font-weight: 420;
+  font-variation-settings: "wght" var(--h1-wght, 420);
+  max-width: 15ch;
+  text-wrap: balance;
+}
+.hero h1 em {
+  font-style: italic; font-variation-settings: "wght" var(--h1-wght, 420);
+  color: var(--green);
+}
+.hero .standfirst {
+  margin-top: 26px; max-width: 52ch; font-size: 1.08rem; color: var(--ink-2);
+  text-wrap: pretty;
+}
+.hero-actions { margin-top: 34px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+.btn {
+  display: inline-block; text-decoration: none; font-weight: 520; font-size: 0.95rem;
+  padding: 13px 22px; border-radius: 999px;
+  transition: background 180ms var(--ease-out), color 180ms var(--ease-out), transform 300ms var(--spring);
+  will-change: transform;
+}
+.btn-ink { background: var(--ink); color: var(--paper); }
+.btn-ink:hover { background: var(--green-deep); }
+.btn-line { color: var(--ink); box-shadow: inset 0 0 0 1px var(--rule); background: transparent; }
+.btn-line:hover { box-shadow: inset 0 0 0 1px var(--ink-2); }
+.hero .coords {
+  margin-top: clamp(30px, 5vh, 52px); display: flex; gap: 24px; flex-wrap: wrap;
+  font-family: var(--mono); font-size: 0.72rem; color: var(--ink-2);
+  letter-spacing: 0.05em; border-top: 1px solid var(--rule); padding-top: 14px;
+}
+
+/* headline load choreography: line masks */
+.mask { display: block; overflow: clip; }
+.mask > span { display: block; transform: translateY(110%); animation: rise 900ms var(--ease-out) forwards; }
+.mask:nth-of-type(2) > span { animation-delay: 90ms; }
+.mask:nth-of-type(3) > span { animation-delay: 180ms; }
+.defn, .standfirst, .hero-actions, .coords { opacity: 0; animation: fadeup 800ms var(--ease-out) forwards; }
+.standfirst { animation-delay: 300ms; }
+.hero-actions { animation-delay: 380ms; }
+.coords { animation-delay: 460ms; }
+@keyframes rise { to { transform: translateY(0); } }
+@keyframes fadeup { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+/* ——— sections ——— */
+section { padding-block: clamp(72px, 11vh, 130px); }
+.eyebrow {
+  font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--green);
+  display: flex; align-items: center; gap: 10px; margin-bottom: 18px;
+}
+.eyebrow::before { content: "◭"; font-size: 0.8em; color: var(--ochre); }
+h2 {
+  font-family: var(--serif); font-weight: 440;
+  font-size: clamp(1.7rem, 3.6vw, 2.6rem); line-height: 1.12;
+  letter-spacing: -0.012em; max-width: 24ch; text-wrap: balance;
+}
+.lede { margin-top: 16px; color: var(--ink-2); max-width: 56ch; text-wrap: pretty; }
+
+/* asymmetric section head: title hangs left, lede offsets right on wide */
+.head { display: grid; gap: 8px 48px; margin-bottom: clamp(36px, 6vh, 64px); }
+@media (min-width: 900px) {
+  .head { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); align-items: end; }
+  .head .eyebrow { grid-column: 1 / -1; }
+  .head .lede { margin-top: 0; padding-bottom: 6px; }
+}
+
+/* ——— services: ruled editorial rows, not cards ——— */
+.svc { border-top: 1px solid var(--rule); }
+.svc-row {
+  display: grid; gap: 6px 40px; padding-block: 30px;
+  border-bottom: 1px solid var(--rule);
+  grid-template-columns: minmax(0, 1fr);
+}
+@media (min-width: 800px) {
+  .svc-row { grid-template-columns: 56px minmax(0, 4fr) minmax(0, 7fr); align-items: baseline; }
+}
+.svc-row .idx { font-family: var(--mono); font-size: 0.75rem; color: var(--ink-2); letter-spacing: 0.08em; }
+.svc-row h3 {
+  font-family: var(--serif); font-weight: 500; font-size: 1.28rem; letter-spacing: -0.008em;
+}
+.svc-row p { color: var(--ink-2); font-size: 0.97rem; max-width: 58ch; text-wrap: pretty; }
+.svc-row p b { color: var(--ink); font-weight: 540; }
+
+/* ——— method: the one true sequence ——— */
+.method { background: var(--paper-deep); border-block: 1px solid var(--rule); }
+.steps { display: grid; gap: clamp(28px, 4vw, 56px); }
+@media (min-width: 860px) { .steps { grid-template-columns: repeat(3, 1fr); } }
+.step .num {
+  font-family: var(--serif); font-size: 2.4rem; font-weight: 300;
+  color: var(--green); line-height: 1; font-variant-numeric: tabular-nums;
+}
+.step h3 { font-family: var(--serif); font-weight: 520; font-size: 1.18rem; margin: 14px 0 8px; }
+.step p { color: var(--ink-2); font-size: 0.96rem; text-wrap: pretty; }
+.step { border-top: 1px solid var(--rule); padding-top: 18px; }
+
+/* ——— fieldwork: process-narrated case study ——— */
+.field {
+  display: grid; gap: clamp(32px, 5vw, 72px);
+}
+@media (min-width: 940px) { .field { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); } }
+.field .narrative p { margin-bottom: 1em; text-wrap: pretty; max-width: 58ch; }
+.field .narrative p:last-child { margin-bottom: 0; }
+.field .narrative .who {
+  font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.06em;
+  color: var(--ink-2); margin-bottom: 18px;
+}
+.ledger { border-top: 1px solid var(--rule); align-self: start; }
+.ledger div {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px;
+  padding-block: 14px; border-bottom: 1px solid var(--rule);
+  font-size: 0.92rem; align-items: baseline;
+}
+.ledger div span:first-child { color: var(--ink-2); }
+.ledger div span:last-child { font-family: var(--mono); font-size: 0.8rem; color: var(--green); text-align: right; }
+
+/* ——— principal note ——— */
+.principal blockquote {
+  font-family: var(--serif); font-weight: 380; font-style: italic;
+  font-size: clamp(1.25rem, 2.6vw, 1.8rem); line-height: 1.35;
+  max-width: 30ch; letter-spacing: -0.005em; text-wrap: balance;
+}
+.principal .attr { margin-top: 22px; font-family: var(--mono); font-size: 0.78rem; color: var(--ink-2); letter-spacing: 0.04em; }
+
+/* ——— contact ——— */
+.contact { border-top: 1px solid var(--rule); }
+.contact .big-link {
+  display: inline-block; margin-top: 8px; text-decoration: none;
+  font-family: var(--serif); font-weight: 420;
+  font-size: clamp(1.6rem, 4.6vw, 3.2rem); letter-spacing: -0.015em;
+  border-bottom: 2px solid var(--rule);
+  transition: border-color 200ms var(--ease-out), color 200ms var(--ease-out);
+  overflow-wrap: anywhere;
+}
+.contact .big-link:hover { color: var(--green); border-color: var(--green); }
+.contact .aside { margin-top: 26px; color: var(--ink-2); font-size: 0.95rem; max-width: 50ch; text-wrap: pretty; }
+
+footer { border-top: 1px solid var(--rule); padding-block: 30px 44px; }
+.foot {
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px 24px;
+  font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.04em; color: var(--ink-2);
+}
+.foot a { color: var(--ink-2); text-decoration: none; }
+.foot a:hover { color: var(--ink); }
+
+/* ——— scroll-driven enhancement layer ——— */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: fadeup 1ms linear both;
+      animation-timeline: view();
+      animation-range: entry 4% entry 36%;
+    }
+    /* the hero headline gains weight as you begin to read the page */
+    .hero h1 {
+      animation: thicken 1ms linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 60svh;
+    }
+    @keyframes thicken { from { --h1-wght: 420; } to { --h1-wght: 560; } }
   }
-  @media (max-width: 800px) { .work { grid-template-columns: 1fr; padding: 32px; } }
-  .work .kicker { color: var(--accent); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.12em; }
-  .work h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); margin: 10px 0 14px; letter-spacing: -0.01em; }
-  .work p { color: #b9c2d4; font-size: 1rem; }
-  .work ul { list-style: none; display: grid; gap: 12px; }
-  .work li { display: flex; gap: 10px; align-items: baseline; color: #dbe1ec; font-size: 0.95rem; }
-  .work li::before { content: "—"; color: var(--accent); font-weight: 700; }
-
-  .contact-card {
-    background: var(--card); border: 1px solid var(--line); border-radius: 18px;
-    padding: 48px; text-align: center;
-  }
-  .contact-card h2 { font-size: clamp(1.5rem, 3vw, 2rem); letter-spacing: -0.015em; }
-  .contact-card p { color: var(--ink-soft); margin: 12px auto 28px; max-width: 46ch; }
-
-  footer { border-top: 1px solid var(--line); padding: 32px 0 48px; }
-  .foot { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; color: var(--ink-soft); font-size: 0.88rem; }
-  .foot a { color: var(--ink-soft); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mask > span { transform: none; animation: none; }
+  .defn, .standfirst, .hero-actions, .coords { opacity: 1; animation: none; }
+}
 </style>
 </head>
 <body>
 
+<div class="rail" aria-hidden="true">
+  <span>42°N —— WESTMARCH</span>
+  <span>SURVEYED 2026</span>
+  <span>DATUM: PROCESS</span>
+</div>
+
 <header>
-  <div class="wrap">
-    <nav>
-      <a class="brand" href="#top" aria-label="Westmarch Management home">
-        <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="6" fill="#1b2a44"/><path d="M6 10l4 12 4-9 4 9 4-12" stroke="#c9873a" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Westmarch Management
-      </a>
-      <div class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#approach">Approach</a>
-        <a href="#work">Work</a>
-        <a class="cta" href="#contact">Start a project</a>
-      </div>
-    </nav>
-  </div>
+  <nav>
+    <a class="brand" href="#top" aria-label="Westmarch home">
+      <svg width="22" height="22" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 5 L27 26 L5 26 Z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="16" cy="20" r="2.4" fill="#1E5C41"/></svg>
+      Westmarch
+    </a>
+    <div class="nav-links">
+      <a href="#practice">Practice</a>
+      <a href="#method">Method</a>
+      <a href="#fieldwork">Fieldwork</a>
+      <a class="cta" href="#contact" data-magnetic>Start a survey</a>
+    </div>
+  </nav>
 </header>
 
 <main id="top">
-  <div class="wrap">
-    <div class="hero">
-      <div class="kicker">Technology for local business</div>
-      <h1>Big-brand technology, built for independent restaurants.</h1>
-      <p>
-        Westmarch Management designs, builds, and operates the digital platform
-        your customers expect — a branded ordering app, loyalty that brings them
-        back, and marketing that fills slow nights — all wired directly into the
-        point-of-sale you already run.
+  <div class="hero">
+    <canvas id="contours" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <p class="defn"><b>march</b> <i>(n.)</i> — a border territory; the land between
+      settled ground and the frontier. Historically governed by those trusted
+      to hold difficult ground.</p>
+      <h1>
+        <span class="mask"><span>The ground between</span></span>
+        <span class="mask"><span>your operation and AI</span></span>
+        <span class="mask"><span>is <em>unmapped.</em></span></span>
+      </h1>
+      <p class="standfirst">
+        Westmarch is a principal-led practice for AI process consultation and
+        integration. We survey how your business actually runs, find the places
+        where AI genuinely pays, and build it into the systems you already
+        operate — verified against the real thing before anyone depends on it.
       </p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="#contact">Start a project</a>
-        <a class="btn btn-ghost" href="#services">See what we build</a>
+        <a class="btn btn-ink" href="#contact" data-magnetic>Start a survey</a>
+        <a class="btn btn-line" href="#method">How engagements run</a>
       </div>
-    </div>
-  </div>
-
-  <div class="trust">
-    <div class="wrap">
-      <p><strong>Built on the systems you already use</strong> — deep integrations with Clover POS, Apple&nbsp;&amp;&nbsp;Google app stores, Google Business Profile, and carrier-compliant SMS.</p>
+      <div class="coords">
+        <span>EST. MMXXV</span>
+        <span>PRINCIPAL-LED</span>
+        <span>DETROIT / REMOTE</span>
+        <span>WESTMARCHMANAGEMENT.COM</span>
+      </div>
     </div>
   </div>
 
   <div class="wrap">
-    <section id="services">
-      <div class="section-head">
-        <div class="kicker">Services</div>
-        <h2>One partner for the whole platform.</h2>
-        <p>Everything below ships as one integrated system — not six vendors who don't talk to each other.</p>
+    <section id="practice">
+      <div class="head reveal">
+        <div class="eyebrow">Practice</div>
+        <h2>Four kinds of work. One standard of proof.</h2>
+        <p class="lede">Every engagement ends with something running in production
+        and a paper trail showing it was tested against live systems — not a
+        slide deck about potential.</p>
       </div>
-      <div class="grid">
-        <div class="card">
-          <div class="glyph">◆</div>
-          <h3>Branded ordering apps</h3>
-          <p>Native iOS and Android apps published under your name. Your menu, your brand, your customer relationship — not a marketplace's.</p>
+      <div class="svc">
+        <div class="svc-row reveal">
+          <span class="idx">S.01</span>
+          <h3>Process survey</h3>
+          <p>Two to three weeks inside how the work actually happens — orders,
+          back office, scheduling, the spreadsheet nobody admits to. The
+          deliverable is a <b>costed map</b>: where AI pays, where it doesn't,
+          and what each crossing costs to build.</p>
         </div>
-        <div class="card">
-          <div class="glyph">⇄</div>
-          <h3>POS integration</h3>
-          <p>Orders land on your kitchen screen like any other ticket. Menu and price changes in your POS appear in the app automatically — no double entry, ever.</p>
+        <div class="svc-row reveal">
+          <span class="idx">S.02</span>
+          <h3>Integration engineering</h3>
+          <p>Wiring models and automation into the systems you already run —
+          point-of-sale, CRM, accounting, communications. Contracts are
+          <b>verified against the live system</b> before launch, because vendor
+          documentation lies and your revenue shouldn't find that out first.</p>
         </div>
-        <div class="card">
-          <div class="glyph">★</div>
-          <h3>Loyalty &amp; rewards</h3>
-          <p>Points on every paid order, redeemable rewards you control, and a reason for customers to order direct instead of through third-party apps.</p>
+        <div class="svc-row reveal">
+          <span class="idx">S.03</span>
+          <h3>Platform builds</h3>
+          <p>When the road doesn't exist yet: customer-facing apps, operator
+          portals, data pipelines. Built in phases that each ship working
+          software, with the <b>payment paths and failure cases</b> engineered
+          first, not last.</p>
         </div>
-        <div class="card">
-          <div class="glyph">✉</div>
-          <h3>SMS marketing</h3>
-          <p>Compliant text campaigns to the customer list you own — segments, scheduling, opt-out handling, and per-message cost transparency built in.</p>
-        </div>
-        <div class="card">
-          <div class="glyph">◎</div>
-          <h3>Local search &amp; GBP</h3>
-          <p>Google Business Profile optimization for every location — categories, hours, photos, and menu links tuned so nearby customers actually find you.</p>
-        </div>
-        <div class="card">
-          <div class="glyph">▤</div>
-          <h3>Analytics &amp; operations</h3>
-          <p>Revenue by location, order velocity by hour, repeat-customer rates — plus an admin portal for menu control and transaction history.</p>
+        <div class="svc-row reveal">
+          <span class="idx">S.04</span>
+          <h3>Operations &amp; reliability</h3>
+          <p>The unglamorous part that makes the rest true: evaluations,
+          monitoring, reconciliation sweeps, decline handling. We stay on to
+          <b>hold the line</b> — a flat monthly engagement, no surprise
+          invoices.</p>
         </div>
       </div>
     </section>
+  </div>
 
-    <section id="approach">
-      <div class="section-head">
-        <div class="kicker">Approach</div>
-        <h2>Verified against the real thing, before your customers touch it.</h2>
-        <p>We build like an engineering firm, not an agency: every integration is proven against live systems, every payment path is tested for the failure cases, and everything ships under your accounts so you own it.</p>
+  <section class="method" id="method">
+    <div class="wrap">
+      <div class="head reveal">
+        <div class="eyebrow">Method</div>
+        <h2>Survey. Build the road. Hold the line.</h2>
+        <p class="lede">The sequence is the point: nothing gets built before the
+        ground is understood, and nothing gets abandoned after it ships.</p>
       </div>
       <div class="steps">
-        <div class="step">
+        <div class="step reveal">
           <div class="num">01</div>
-          <h3>Foundations first</h3>
-          <p>Money math, POS contracts, and payment flows built and verified against your live systems before a single screen is designed.</p>
+          <h3>Survey the territory</h3>
+          <p>We map your processes against what current AI can reliably do —
+          in writing, with costs. If the honest answer is “AI doesn't pay
+          here yet,” that's the report you get.</p>
         </div>
-        <div class="step">
+        <div class="step reveal">
           <div class="num">02</div>
-          <h3>Ship in phases</h3>
-          <p>Working software at every milestone — ordering end-to-end, then loyalty, then marketing — each phase reviewed and verified before the next begins.</p>
+          <h3>Build the road</h3>
+          <p>Phased delivery, working software at every milestone. Money paths
+          get engineered for the failure cases — retries, declines, duplicate
+          charges — before any interface gets its polish.</p>
         </div>
-        <div class="step">
+        <div class="step reveal">
           <div class="num">03</div>
-          <h3>Operate &amp; grow</h3>
-          <p>We stay on as your technology partner: monitoring, reconciliation, new locations, new campaigns — a flat monthly engagement, no surprises.</p>
+          <h3>Hold the line</h3>
+          <p>Live verification before launch, then ongoing operation: monitoring,
+          reconciliation, and honest reporting when something needs attention —
+          delivered by the person who built it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <section id="fieldwork">
+      <div class="head reveal">
+        <div class="eyebrow">Fieldwork</div>
+        <h2>A multi-location restaurant group, wired end to end.</h2>
+      </div>
+      <div class="field">
+        <div class="narrative reveal">
+          <p class="who">SECTOR: QUICK-SERVICE RESTAURANTS · SCOPE: ORDERING PLATFORM · STATUS: IN DELIVERY</p>
+          <p>A Detroit-area restaurant group needed what the big chains have —
+          a branded ordering app, loyalty, direct customer relationships —
+          without a big chain's IT department. The territory: a point-of-sale
+          system that had to remain the source of truth, payment flows where a
+          mistake means charging someone twice, and a menu that changes weekly.</p>
+          <p>We surveyed first: every assumption about the POS vendor's API was
+          encoded as an executable checklist and run against their live sandbox.
+          The survey caught three integration defects in the vendor's documented
+          behavior — including a payment-response format that would have marked
+          every successful charge as a failure — before a single customer was
+          exposed to any of them.</p>
+          <p>The build ships in phases, each independently verified: the pricing
+          and loyalty engine, the POS integration, the hardened ordering API,
+          and now the customer app. Every phase passed an adversarial review
+          before the next began.</p>
+        </div>
+        <div class="ledger reveal" aria-label="Engagement facts">
+          <div><span>Orders placed in-app</span><span>APPEAR ON KITCHEN SCREENS</span></div>
+          <div><span>Menu changes in the POS</span><span>SYNC AUTOMATICALLY</span></div>
+          <div><span>Payment contract</span><span>VERIFIED AGAINST LIVE SANDBOX</span></div>
+          <div><span>Duplicate-charge window</span><span>CLOSED BY DESIGN</span></div>
+          <div><span>Loyalty ledger</span><span>EXACT, AUDITED, RECONCILED</span></div>
+          <div><span>Test suite at last count</span><span>196 PASSING</span></div>
         </div>
       </div>
     </section>
 
-    <section id="work">
-      <div class="work">
-        <div>
-          <div class="kicker">Current work</div>
-          <h2>A multi-location restaurant group's complete ordering platform.</h2>
-          <p>
-            For a Detroit-area quick-service restaurant group, we're delivering a
-            branded ordering app with native POS integration, in-app loyalty,
-            local-search optimization for every storefront, and an SMS marketing
-            engine — one platform, one partner.
-          </p>
-        </div>
-        <ul>
-          <li>Orders placed in-app appear directly on kitchen screens</li>
-          <li>Menu changes in the POS reflect in the app automatically</li>
-          <li>Payment flows verified live against POS systems, decline-safe</li>
-          <li>Loyalty points on every paid order, redeemable in-app</li>
-        </ul>
+    <section class="principal">
+      <div class="reveal">
+        <div class="eyebrow">The practice</div>
+        <blockquote>“You work with the person who builds it. No hand-offs,
+        no juniors, no account layer — and no recommendation we wouldn't
+        stake the engagement on.”</blockquote>
+        <p class="attr">— THE PRINCIPAL, WESTMARCH MANAGEMENT LLC</p>
       </div>
     </section>
 
-    <section id="contact">
-      <div class="contact-card">
-        <h2>Tell us about your restaurant.</h2>
-        <p>
-          A 30-minute conversation is enough to tell you what a platform like this
-          looks like for your business — what it costs, how long it takes, and
-          what it replaces.
-        </p>
-        <a class="btn btn-primary" href="mailto:hello@westmarchmanagement.com">hello@westmarchmanagement.com</a>
+    <section class="contact" id="contact">
+      <div class="reveal">
+        <div class="eyebrow">Start a survey</div>
+        <h2>Tell us where the map runs out.</h2>
+        <a class="big-link" href="mailto:hello@westmarchmanagement.com">hello@westmarchmanagement.com</a>
+        <p class="aside">One conversation is enough to tell you whether there's
+        a survey worth running — what it would cover, what it costs, and what
+        you'd know at the end that you don't know now.</p>
       </div>
     </section>
   </div>
@@ -302,11 +529,152 @@
 <footer>
   <div class="wrap">
     <div class="foot">
-      <div>© 2026 Westmarch Management LLC. All rights reserved.</div>
-      <div><a href="mailto:hello@westmarchmanagement.com">hello@westmarchmanagement.com</a></div>
+      <span>© MMXXVI WESTMARCH MANAGEMENT LLC</span>
+      <span>AI PROCESS CONSULTATION &amp; INTEGRATION</span>
+      <a href="mailto:hello@westmarchmanagement.com">HELLO@WESTMARCHMANAGEMENT.COM</a>
     </div>
   </div>
 </footer>
+
+<script>
+/* ————————————————————————————————————————————————
+   Living contour survey — hand-rolled marching squares over value noise.
+   2D canvas, no dependencies. Pauses off-screen; renders one static frame
+   under prefers-reduced-motion; ~30fps cap.
+—————————————————————————————————————————————— */
+(function () {
+  var canvas = document.getElementById("contours");
+  if (!canvas || !canvas.getContext) return;
+  var ctx = canvas.getContext("2d");
+  var reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // — gradient value noise —
+  var perm = new Uint8Array(512);
+  (function () {
+    var p = [], i;
+    for (i = 0; i < 256; i++) p[i] = i;
+    var seed = 1837; // fixed seed: the map is stable between visits
+    function rnd() { seed = (seed * 16807) % 2147483647; return seed / 2147483647; }
+    for (i = 255; i > 0; i--) { var j = Math.floor(rnd() * (i + 1)); var t = p[i]; p[i] = p[j]; p[j] = t; }
+    for (i = 0; i < 512; i++) perm[i] = p[i & 255];
+  })();
+  function fade(t) { return t * t * t * (t * (t * 6 - 15) + 10); }
+  function grad(h, x, y, z) {
+    var u = h < 8 ? x : y, v = h < 4 ? y : (h === 12 || h === 14 ? x : z);
+    return ((h & 1) ? -u : u) + ((h & 2) ? -v : v);
+  }
+  function noise(x, y, z) {
+    var X = Math.floor(x) & 255, Y = Math.floor(y) & 255, Z = Math.floor(z) & 255;
+    x -= Math.floor(x); y -= Math.floor(y); z -= Math.floor(z);
+    var u = fade(x), v = fade(y), w = fade(z);
+    var A = perm[X] + Y, AA = perm[A] + Z, AB = perm[A + 1] + Z;
+    var B = perm[X + 1] + Y, BA = perm[B] + Z, BB = perm[B + 1] + Z;
+    function lerp(t, a, b) { return a + t * (b - a); }
+    return lerp(w,
+      lerp(v, lerp(u, grad(perm[AA] & 15, x, y, z), grad(perm[BA] & 15, x - 1, y, z)),
+              lerp(u, grad(perm[AB] & 15, x, y - 1, z), grad(perm[BB] & 15, x - 1, y - 1, z))),
+      lerp(v, lerp(u, grad(perm[AA + 1] & 15, x, y, z - 1), grad(perm[BA + 1] & 15, x - 1, y, z - 1)),
+              lerp(u, grad(perm[AB + 1] & 15, x, y - 1, z - 1), grad(perm[BB + 1] & 15, x - 1, y - 1, z - 1))));
+  }
+  function field(x, y, t) {
+    return noise(x * 1.6, y * 1.6, t) * 0.62 + noise(x * 3.6 + 40, y * 3.6, t * 0.7) * 0.28;
+  }
+
+  var W, H, cols, rows, cell, dpr;
+  function size() {
+    dpr = Math.min(devicePixelRatio || 1, 2);
+    W = canvas.clientWidth; H = canvas.clientHeight;
+    canvas.width = W * dpr; canvas.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    cell = Math.max(13, Math.round(W / 90));
+    cols = Math.ceil(W / cell) + 1; rows = Math.ceil(H / cell) + 1;
+  }
+
+  var LEVELS = [-0.28, -0.16, -0.05, 0.05, 0.16, 0.28, 0.4];
+  function draw(t) {
+    ctx.clearRect(0, 0, W, H);
+    var g = [];
+    for (var j = 0; j < rows; j++) {
+      g[j] = [];
+      for (var i = 0; i < cols; i++) g[j][i] = field(i * cell / W * (W / H > 1.4 ? 1.35 : 1), j * cell / H, t);
+    }
+    for (var L = 0; L < LEVELS.length; L++) {
+      var lv = LEVELS[L];
+      var major = L === 3;
+      ctx.strokeStyle = major ? "rgba(30,92,65,0.5)" : "rgba(30,92,65,0.26)";
+      ctx.lineWidth = major ? 1.1 : 0.7;
+      ctx.beginPath();
+      for (var jj = 0; jj < rows - 1; jj++) {
+        for (var ii = 0; ii < cols - 1; ii++) {
+          var a = g[jj][ii], b = g[jj][ii + 1], c = g[jj + 1][ii + 1], d = g[jj + 1][ii];
+          var x = ii * cell, y = jj * cell;
+          var idx = (a > lv ? 8 : 0) | (b > lv ? 4 : 0) | (c > lv ? 2 : 0) | (d > lv ? 1 : 0);
+          if (idx === 0 || idx === 15) continue;
+          function ip(p, q) { return (lv - p) / (q - p); }
+          var top =    [x + cell * ip(a, b), y];
+          var right =  [x + cell, y + cell * ip(b, c)];
+          var bottom = [x + cell * ip(d, c), y + cell];
+          var left =   [x, y + cell * ip(a, d)];
+          var segs = {
+            1: [left, bottom], 2: [bottom, right], 3: [left, right], 4: [top, right],
+            5: [top, left, bottom, right], 6: [top, bottom], 7: [left, top],
+            8: [top, left], 9: [top, bottom], 10: [top, right, bottom, left],
+            11: [top, right], 12: [left, right], 13: [bottom, right], 14: [left, bottom]
+          }[idx];
+          if (!segs) continue;
+          for (var s = 0; s < segs.length; s += 2) {
+            ctx.moveTo(segs[s][0], segs[s][1]);
+            ctx.lineTo(segs[s + 1][0], segs[s + 1][1]);
+          }
+        }
+      }
+      ctx.stroke();
+    }
+    // benchmark markers at three fixed survey points
+    var marks = [[0.72, 0.3], [0.86, 0.62], [0.63, 0.78]];
+    ctx.fillStyle = "rgba(194,146,55,0.9)";
+    ctx.strokeStyle = "rgba(194,146,55,0.9)";
+    for (var m = 0; m < marks.length; m++) {
+      var mx = marks[m][0] * W, my = marks[m][1] * H;
+      ctx.beginPath(); ctx.arc(mx, my, 2.2, 0, 7); ctx.fill();
+      ctx.beginPath(); ctx.moveTo(mx, my - 8); ctx.lineTo(mx + 7, my + 5); ctx.lineTo(mx - 7, my + 5); ctx.closePath(); ctx.stroke();
+    }
+  }
+
+  var t0 = 0, running = false, raf, last = 0;
+  function loop(now) {
+    if (!running) return;
+    if (now - last > 33) { last = now; t0 += 0.0022; draw(t0); }
+    raf = requestAnimationFrame(loop);
+  }
+  function start() { if (!running && !reduced) { running = true; raf = requestAnimationFrame(loop); } }
+  function stop() { running = false; cancelAnimationFrame(raf); }
+
+  size(); draw(0);
+  if (!reduced) {
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (es) { es[0].isIntersecting ? start() : stop(); })
+        .observe(canvas);
+    } else start();
+  }
+  addEventListener("resize", function () { size(); draw(t0); }, { passive: true });
+})();
+
+/* Magnetic pull on primary CTAs — a few px, precision-pointer only */
+(function () {
+  if (!matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  document.querySelectorAll("[data-magnetic]").forEach(function (el) {
+    el.addEventListener("pointermove", function (e) {
+      var r = el.getBoundingClientRect();
+      var dx = (e.clientX - r.left - r.width / 2) / r.width;
+      var dy = (e.clientY - r.top - r.height / 2) / r.height;
+      el.style.transform = "translate(" + dx * 6 + "px," + dy * 5 + "px)";
+    });
+    el.addEventListener("pointerleave", function () { el.style.transform = ""; });
+  });
+})();
+</script>
 
 </body>
 </html>
